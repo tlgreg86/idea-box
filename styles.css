@@ -1,3 +1,58 @@
+body {
+  font-family: 'open-sans' sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  background-color: #fff;
+}
+
+.input-area {
+  background-color: #E5F3F2;
+}
+
+.title-input {
+  width: 90%;
+  height: 30px;
+  padding-left: 5px;
+}
+
+.body-input {
+  width: 90%;
+  height: 70px;
+  margin: 10px 0px;
+  padding-left: 5px;
+}
+
+.save-button {
+  background-color: #00A79D;
+  border-style: none;
+  color: #FFF;
+  height: 30px;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.search-bar {
+  width: 90%;
+  height: 30px;
+  padding-left: 5px;
+  margin-top: 10px;
+}
+
+
+
+h1, h2 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  color: #6D6E71;
+}
+
+h1 span {
+  color: #00A79D;
+}
+
+
 img {
   width: 30px;
 }
