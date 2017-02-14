@@ -36,6 +36,8 @@ $("#saveButton").on("click", function(event){
   console.log(id)
   event.preventDefault();
   // storeIdea(id, storedObj);
+  storeIdea(id, newIdea);
+  getIdea(id);
   createCard();
   clearInputs();
 
@@ -70,7 +72,7 @@ $("#saveButton").on("click", function(event){
 // }
 
 function storeIdea (id, card) {
-  localStorage.setItem(JSON.stringify(card));
+  localStorage.setItem(id, JSON.stringify(card));
 }
 
 function getIdea (id, card) {
