@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Idea Box</title>
+    <link rel="stylesheet" href="normalize.css" type="text/css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=true;">
+  </head>
+  <body>
+    <section class="container">
+
+      <section class="input-area">
+        <h1><span>idea</span>box</h1>
+        <input class="title-input" id="titleInput" type="text" name="title" placeholder="Title">
+        <input class="body-input" id="bodyInput" type="text" name="body" placeholder="Body">
+        <button class="save-button" id="saveButton" type="button" name="save">save</button>
+      </section>
+
+      <section>
+        <section class="search-bar">
+          <input class="search-bar" id="searchBar" type="text" name="search" placeholder="Search">
+        </section>
+        <section class="idea-box" id="ideaBox">
+          <article class="card" id="card">
+            <h2>Title</h2>
+            <img class="card-delete" src="images/delete.svg" alt="delete">
+            <p>Body of text</p>
+            <img class="upvote-button" src="images/upvote.svg" alt="upvote button">
+            <img class="downvote-button" src="images/downvote.svg" alt="downvote button">
+            <p>quality:<span>swill</span></p>
+            <hr>
+
+          </article>
+        </section>
+
+      </section>
+
+
+
+
+    </section>
+    <script type="text/javascript" src="jquery-3.1.1.min.js" type="text/js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="jquery-3.1.1.min.js"><\/script>')</script>
+    <script type="text/javascript" src="script.js" type="text/js"></script>
+  </body>
+</html>
