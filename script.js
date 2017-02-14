@@ -1,4 +1,4 @@
-//keyup to enable button...keyup to disable 
+//keyup to enable button...keyup to disable
 
 
 //User needs to submit title and body text into appropriate input fields.
@@ -16,3 +16,6 @@
 
 
 //filter ideas via search bar
+
+
+//Title and body text need to be editable on the card, changes saved via enter/return keystrok or clicking outside of field. Changes persist even on page reload.
