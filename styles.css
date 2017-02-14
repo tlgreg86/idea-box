@@ -1,14 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'open-sans' sans-serif;
   font-size: 16px;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
 }
 
 .input-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #E5F3F2;
+}
+
+form.input-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
 }
 
 .title-input {
@@ -33,14 +49,18 @@ body {
   width: 90%;
 }
 
+.search-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .search-bar {
-  width: 90%;
+  width: 81%;
   height: 30px;
   padding-left: 5px;
   margin-top: 10px;
 }
-
-
 
 h1, h2 {
   font-family: 'Roboto Slab', serif;
