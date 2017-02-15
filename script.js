@@ -87,10 +87,13 @@ $(".idea-box").on("click", ".card-delete", function() {
 
 
 
-
-
 //vote up vote down buttons
-
+$("#ideaBox").on("click", ".upvote-button", function () {
+  var currentQuality = $(this).siblings("#quality");
+  currentQuality.text() === "swill" ? currentQuality.text("plausible") : currentQuality.text("genius");
+  console.log('Get out the vote!')
+  // updateStoredQuality(this, currentQuality);
+});
 
 //filter ideas via search bar
 
