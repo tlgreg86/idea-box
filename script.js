@@ -69,9 +69,9 @@ function createCard (idea) {
         <div class="card-delete" alt="delete"></div>
         <h2 contenteditable>${idea.title}</h2>
         <p contenteditable>${idea.body}</p>
-        <img class="upvote-button" src="images/upvote.svg" alt="upvote button">
-        <img class="downvote-button" src="images/downvote.svg" alt="downvote button">
-        <p id="quality">quality: <span>${idea.quality}</span></p>
+        <div class="upvote-button" id="upvote"></div>
+        <div class="downvote-button"></div>
+        <p class="quality">quality: <h4 id="quality">${idea.quality}</h4></p>
         <hr>
       </article>`
 )}
@@ -86,6 +86,26 @@ $('#ideaBox').on('click','.card-delete', function() {
 
 
 //vote up vote down buttons
+$('#ideaBox').on('click', '#upvote', function () {
+  var selector = $(this).siblings('#quality');
+  console.log(selector);
+  var currentQuality = selector.text();
+  console.log(currentQuality);
+  selector.text === 'swill' ? selector.text('plausible') : selector.text('genius');
+
+
+
+
+    // if (currentQuality === "swill") {
+    //   currentQuality = "plausible"
+    //   selector.text(currentQuality)
+    // } else if (currentQuality === "plausible") {
+    //   currentQuality = "genius"
+    //   selector.text(currentQuality);
+    // }
+    // selector.text === 'swill' ? selector.text('plausible') : selector.text('genius');
+// (condition) ? [true] : [false];
+});
 
 
 //filter ideas via search bar
