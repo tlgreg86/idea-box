@@ -55,11 +55,47 @@ form.input-fields {
   align-items: center;
 }
 
+.idea-box {
+  display: flex;
+  flex-direction: column;
+  width: 81%;
+}
+
 .search-bar {
   width: 81%;
   height: 30px;
   padding-left: 5px;
   margin-top: 10px;
+}
+
+.card-delete {
+  position: relative;
+  float: right;
+  top: 20px;
+}
+
+.downvote-button {
+  margin-left: 10px;
+}
+
+p span {
+  font-family: "Open-sans"
+}
+
+#quality {
+  font-family: "Roboto-slab";
+  display: inline;
+  position: relative;
+  left: 17px;
+  bottom: 8px;
+}
+
+article {
+  width: 100%;
+}
+
+h2 {
+  width: 90%;
 }
 
 h1, h2 {
@@ -72,7 +108,7 @@ h1 span {
   color: #00A79D;
 }
 
-
 img {
-  width: 30px;
+  align-self: flex-end;
+  width: 25px;
 }

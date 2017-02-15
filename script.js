@@ -66,12 +66,12 @@ function retrieveIdeas () {
 function createCard (idea) {
   $('#ideaBox').prepend(
       `<article class="card" id="${idea.id}">
-        <h2>${idea.title}</h2>
         <img class="card-delete" src="images/delete.svg" alt="delete">
-        <p>${idea.body}</p>
+        <h2 contenteditable>${idea.title}</h2>
+        <p contenteditable>${idea.body}</p>
         <img class="upvote-button" src="images/upvote.svg" alt="upvote button">
         <img class="downvote-button" src="images/downvote.svg" alt="downvote button">
-        <p>quality:<span>${idea.quality}</span></p>
+        <p id="quality">quality:<span>${idea.quality}</span></p>
         <hr>
       </article>`
 )}
