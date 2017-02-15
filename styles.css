@@ -69,9 +69,17 @@ form.input-fields {
 }
 
 .card-delete {
+  height: 25px;
+  width: 25px;
   position: relative;
   float: right;
   top: 20px;
+  cursor: pointer;
+  background-image: url(images/delete.svg);
+}
+
+.card-delete:hover {
+  background-image: url(images/delete-hover.svg);
 }
 
 .downvote-button {
@@ -79,11 +87,11 @@ form.input-fields {
 }
 
 p span {
-  font-family: "Open-sans"
+  font-family: "Open sans"
 }
 
 #quality {
-  font-family: "Roboto-slab";
+  font-family: "Roboto slab";
   display: inline;
   position: relative;
   left: 17px;

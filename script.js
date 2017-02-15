@@ -66,27 +66,23 @@ function retrieveIdeas () {
 function createCard (idea) {
   $('#ideaBox').prepend(
       `<article class="card" id="${idea.id}">
-        <img class="card-delete" src="images/delete.svg" alt="delete">
+        <div class="card-delete" alt="delete"></div>
         <h2 contenteditable>${idea.title}</h2>
         <p contenteditable>${idea.body}</p>
         <img class="upvote-button" src="images/upvote.svg" alt="upvote button">
         <img class="downvote-button" src="images/downvote.svg" alt="downvote button">
-        <p id="quality">quality:<span>${idea.quality}</span></p>
+        <p id="quality">quality: <span>${idea.quality}</span></p>
         <hr>
       </article>`
 )}
 
 
-//delete button on card
 //delete card from DOM and storage
-// $(".idea-box").on("click", ".card-delete", function() {
-//   var id = $(this).parent().attr("id");
-//   localStorage.removeItem(id);
-//   $(this).parent().remove();
-// });
-//
-
-
+$('#ideaBox').on('click','.card-delete', function() {
+  var id = $(this).parent().attr("id");
+  localStorage.removeItem(id);
+  $(this).parent().remove();
+})
 
 
 //vote up vote down buttons
