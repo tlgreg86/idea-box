@@ -71,18 +71,22 @@ function createCard (idea) {
         <p contenteditable>${idea.body}</p>
         <img class="upvote-button" src="images/upvote.svg" alt="upvote button">
         <img class="downvote-button" src="images/downvote.svg" alt="downvote button">
-        <p id="quality">quality: <span>${idea.quality}</span></p>
+        <p id="quality">quality:<span>${idea.quality}</span></p>
         <hr>
       </article>`
 )}
 
 
-//delete card from DOM and storage
-$('#ideaBox').on('click','.card-delete', function() {
+//delete button on card
+// delete card from DOM and storage
+$(".idea-box").on("click", ".card-delete", function() {
   var id = $(this).parent().attr("id");
   localStorage.removeItem(id);
   $(this).parent().remove();
-})
+});
+
+
+
 
 
 //vote up vote down buttons
