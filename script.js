@@ -66,8 +66,8 @@ function createCard (idea) {
   $('#ideaBox').prepend(
       `<article class="card" id="${idea.id}">
         <div class="card-delete" alt="delete"></div>
-        <h2 contenteditable>${idea.title}</h2>
-        <p contenteditable>${idea.body}</p>
+        <h2 id="title" contenteditable=true>${idea.title}</h2>
+        <p id="body" contenteditable=true>${idea.body}</p>
         <div class="upvote-button" id="upvote"></div>
         <div class="downvote-button"></div>
         <p class="quality">quality: <h4 id="quality">${idea.quality}</h4></p>
@@ -93,6 +93,7 @@ $('#ideaBox').on('click', '#upvote', function () {
   updateQuality(this, currentQuality);
 });
 
+
 //vote down buttons
 $('#ideaBox').on('click', '.downvote-button', function() {
   var selector = $(this).siblings('#quality');
@@ -101,13 +102,30 @@ $('#ideaBox').on('click', '.downvote-button', function() {
   updateQuality(this, currentQuality);
 });
 
-//function to get card out of storage, update, return.
+
+//edit title/body box and save to local storage on blur
+$('#ideaBox').on('blur', '#title', function() {
+  var getID = $(this).parent().attr("id");
+  var getObj = JSON.parse(localStorage.getItem(getID));
+  getObj.title = $('#title').text();
+  localStorage.setItem(getID, JSON.stringify(getObj))
+});
+
+$('#ideaBox').on('blur', '#body', function() {
+  var getID = $(this).parent().attr("id");
+  var getObj = JSON.parse(localStorage.getItem(getID));
+  getObj.body = $('#body').text();
+  localStorage.setItem(getID, JSON.stringify(getObj))
+});
+
+
+//pulls quality from local, updates quality, saves to local
 function updateQuality (location, currentQuality) {
   var getID = $(location).parent().attr("id");
-  var getObjID = JSON.parse(localStorage.getItem(getID));
-  getObjID.quality = currentQuality;
-  localStorage.setItem(getID, JSON.stringify(getObjID));
-}
+  var getObj = JSON.parse(localStorage.getItem(getID));
+  getObj.quality = currentQuality;
+  localStorage.setItem(getID, JSON.stringify(getObj));
+};
 
 //filter ideas via search bar
 $('#searchBar').on('keyup', function (){
