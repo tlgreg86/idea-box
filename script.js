@@ -39,7 +39,6 @@ $("#saveButton").on("click", function(){
 })
 
 
-
 //clear inputs
 function clearInputs () {
   $('.title-input').val("");
@@ -77,8 +76,9 @@ function createCard (idea) {
 )}
 
 
-//delete card from DOM and storage
-$('#ideaBox').on('click','.card-delete', function() {
+//delete button on card
+// delete card from DOM and storage
+$(".idea-box").on("click", ".card-delete", function() {
   var id = $(this).parent().attr("id");
   localStorage.removeItem(id);
   $(this).parent().remove();
@@ -101,7 +101,7 @@ $('#ideaBox').on('click', '.downvote-button', function() {
   updateQuality(this, currentQuality);
 });
 
-
+//function to get card out of storage, update, return.
 function updateQuality (location, currentQuality) {
   var getID = $(location).parent().attr("id");
   var getObjID = JSON.parse(localStorage.getItem(getID));
@@ -109,8 +109,15 @@ function updateQuality (location, currentQuality) {
   localStorage.setItem(getID, JSON.stringify(getObjID));
 }
 
-
 //filter ideas via search bar
+$('#searchBar').on('keyup', function (){
+  var searchText = $(this).val().toLowerCase();
+  $('.card').each(function(index, idea) {
+    var ideaText = $(this).text().toLowerCase();
+    // $(this)[ideaText.indexOf(searchText) !== -1 ? 'show' : 'hide']();
+    var matchedText = ideaText.indexOf(searchText) !== -1;
+    $(idea).toggle(matchedText);
 
 
-//Title and body text need to be editable on the card, changes saved via enter/return keystroke or clicking outside of field. Changes persist even on page reload.
+  })
+});
