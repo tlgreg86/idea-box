@@ -31,13 +31,23 @@ form.input-fields {
   width: 90%;
   height: 30px;
   padding-left: 5px;
+  border: 1px solid lightgrey;
+}
+
+textarea {
+  resize: none;
+  width: 90%;
+  margin: 10px 0px;
+  padding: 5px 5px 62px 5px;
+  border-color: lightgrey;
 }
 
 .body-input {
   width: 90%;
-  height: 70px;
-  margin: 10px 0px;
+  margin: 15px 0px;
   padding-left: 5px;
+  padding-bottom: 62px;
+  border: 1px solid lightgrey;
 }
 
 .save-button {
@@ -45,8 +55,13 @@ form.input-fields {
   border-style: none;
   color: #FFF;
   height: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   width: 90%;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #045E55;
 }
 
 .search-area {
@@ -61,11 +76,16 @@ form.input-fields {
   width: 81%;
 }
 
+hr {
+  color: #D1D3D4;
+}
+
 .search-bar {
   width: 81%;
   height: 30px;
   padding-left: 5px;
-  margin-top: 10px;
+  margin: 15px 0 20px;
+  border: 1px solid lightgrey;
 }
 
 .card-delete {
@@ -82,10 +102,6 @@ form.input-fields {
   background-image: url(images/delete-hover.svg);
 }
 
-p#body {
-    color: #939598;
-}
-
 p.quality {
   font-family: "Roboto slab";
   display: inline;
@@ -94,6 +110,10 @@ p.quality {
   top: -8px;
   color: #6D6E71;
   font-weight: 400;
+}
+
+p#body {
+    color: #939598;
 }
 
 #quality {
@@ -118,7 +138,7 @@ article {
 }
 
 h2 {
-  width: 90%;
+  width: 75%;
 }
 
 h1, h2 {
