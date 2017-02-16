@@ -1,8 +1,6 @@
-//Retrieve ideas on page load
 $(document).ready(retrieveIdeas);
 
 
-//constructor
 function Idea(id, title, body, quality) {
   this.id = id;
   this.title = title;
@@ -11,10 +9,9 @@ function Idea(id, title, body, quality) {
 }
 
 
-//button disabled
 $('#saveButton').prop('disabled', true);
 
-//input field keyup
+
 $('input[type=text]').on('keyup', function(){
   var title = $('#titleInput').val();
   var body = $('#bodyInput').val();
@@ -26,7 +23,6 @@ $('input[type=text]').on('keyup', function(){
 });
 
 
-//Save button click event
 $("#saveButton").on("click", function(){
   var title = $('#titleInput').val();
   var body = $('#bodyInput').val();
@@ -39,20 +35,17 @@ $("#saveButton").on("click", function(){
 })
 
 
-//clear inputs
 function clearInputs () {
   $('.title-input').val("");
   $('.body-input').val("");
 }
 
 
-//store idea to localStorage
 function storeIdea (id, card) {
   localStorage.setItem(id, JSON.stringify(card));
 }
 
 
-//retrieve stored ideas
 function retrieveIdeas () {
   for (var key in localStorage) {
     var parsedIdea = JSON.parse(localStorage[key]);
@@ -61,7 +54,6 @@ function retrieveIdeas () {
 }
 
 
-//create new card to display in DOM
 function createCard (idea) {
   $('#ideaBox').prepend(
       `<article class="card" id="${idea.id}">
@@ -76,8 +68,6 @@ function createCard (idea) {
 )}
 
 
-//delete button on card
-// delete card from DOM and storage
 $(".idea-box").on("click", ".card-delete", function() {
   var id = $(this).parent().attr("id");
   localStorage.removeItem(id);
@@ -85,7 +75,6 @@ $(".idea-box").on("click", ".card-delete", function() {
 })
 
 
-//vote up vote down buttons
 $('#ideaBox').on('click', '#upvote', function () {
   var selector = $(this).siblings('#quality');
   selector.text() === 'swill' ? selector.text('plausible') : selector.text('genius');
@@ -94,7 +83,6 @@ $('#ideaBox').on('click', '#upvote', function () {
 });
 
 
-//vote down buttons
 $('#ideaBox').on('click', '.downvote-button', function() {
   var selector = $(this).siblings('#quality');
   selector.text() === 'genius' ? selector.text('plausible') : selector.text('swill');
@@ -103,13 +91,13 @@ $('#ideaBox').on('click', '.downvote-button', function() {
 });
 
 
-//edit title/body box and save to local storage on blur
 $('#ideaBox').on('blur', '#title', function() {
   var getID = $(this).parent().attr("id");
   var getObj = JSON.parse(localStorage.getItem(getID));
   getObj.title = $('#title').text();
   localStorage.setItem(getID, JSON.stringify(getObj))
 });
+
 
 $('#ideaBox').on('blur', '#body', function() {
   var getID = $(this).parent().attr("id");
@@ -119,7 +107,6 @@ $('#ideaBox').on('blur', '#body', function() {
 });
 
 
-//pulls quality from local, updates quality, saves to local
 function updateQuality (location, currentQuality) {
   var getID = $(location).parent().attr("id");
   var getObj = JSON.parse(localStorage.getItem(getID));
@@ -127,15 +114,12 @@ function updateQuality (location, currentQuality) {
   localStorage.setItem(getID, JSON.stringify(getObj));
 };
 
-//filter ideas via search bar
+
 $('#searchBar').on('keyup', function (){
   var searchText = $(this).val().toLowerCase();
   $('.card').each(function(index, idea) {
     var ideaText = $(this).text().toLowerCase();
-    // $(this)[ideaText.indexOf(searchText) !== -1 ? 'show' : 'hide']();
     var matchedText = ideaText.indexOf(searchText) !== -1;
     $(idea).toggle(matchedText);
-
-
   })
 });
