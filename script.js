@@ -36,8 +36,8 @@ $("#saveButton").on("click", function(){
   createCard(newIdea);
   storeIdea(id, newIdea);
   clearInputs();
-
 })
+
 
 
 //clear inputs
@@ -88,24 +88,26 @@ $('#ideaBox').on('click','.card-delete', function() {
 //vote up vote down buttons
 $('#ideaBox').on('click', '#upvote', function () {
   var selector = $(this).siblings('#quality');
-  console.log(selector);
+  selector.text() === 'swill' ? selector.text('plausible') : selector.text('genius');
   var currentQuality = selector.text();
-  console.log(currentQuality);
-  selector.text === 'swill' ? selector.text('plausible') : selector.text('genius');
-
-
-
-
-    // if (currentQuality === "swill") {
-    //   currentQuality = "plausible"
-    //   selector.text(currentQuality)
-    // } else if (currentQuality === "plausible") {
-    //   currentQuality = "genius"
-    //   selector.text(currentQuality);
-    // }
-    // selector.text === 'swill' ? selector.text('plausible') : selector.text('genius');
-// (condition) ? [true] : [false];
+  updateQuality(this, currentQuality);
 });
+
+//vote down buttons
+$('#ideaBox').on('click', '.downvote-button', function() {
+  var selector = $(this).siblings('#quality');
+  selector.text() === 'genius' ? selector.text('plausible') : selector.text('swill');
+  var currentQuality = selector.text();
+  updateQuality(this, currentQuality);
+});
+
+
+function updateQuality (location, currentQuality) {
+  var getID = $(location).parent().attr("id");
+  var getObjID = JSON.parse(localStorage.getItem(getID));
+  getObjID.quality = currentQuality;
+  localStorage.setItem(getID, JSON.stringify(getObjID));
+}
 
 
 //filter ideas via search bar
