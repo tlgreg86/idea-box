@@ -1,4 +1,6 @@
-# IdeaBox 💡
+## Live Demo
+
+Check out the live demo: [IdeaBox](https://yourusername.github.io/idea-box)# IdeaBox 💡
 
 A modern web application for capturing and managing your ideas. Built with HTML, CSS, and JavaScript.
 
