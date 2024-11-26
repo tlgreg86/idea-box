@@ -17,6 +17,7 @@ class Idea {
 class IdeaManager {
   constructor() {
     this.initializeEventListeners();
+    this.initializeExpandingTextarea();
   }
 
   initializeEventListeners() {
@@ -39,6 +40,25 @@ class IdeaManager {
     $('#searchBar').on('keyup', (e) => this.searchIdeas(e));
   }
 
+  initializeExpandingTextarea() {
+    const textarea = $('#bodyInput');
+    
+    // Set initial height
+    this.adjustTextareaHeight(textarea[0]);
+    
+    // Auto-adjust height on input
+    textarea.on('input', (e) => {
+      this.adjustTextareaHeight(e.target);
+    });
+  }
+
+  adjustTextareaHeight(element) {
+    // Reset height to allow shrinking
+    element.style.height = 'auto';
+    
+    // Set new height based on scroll height
+    element.style.height = element.scrollHeight + 'px';
+  }
 
   validateInputs() {
     const title = $('#titleInput').val().trim();

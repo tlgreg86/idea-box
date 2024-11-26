@@ -43,9 +43,13 @@ form.input-fields {
 textarea {
   resize: none;
   width: 90%;
+  min-height: 30px;
+  max-height: 300px;
   margin: 15px 0px;
-  padding: 5px 5px 62px 5px;
+  padding: 5px;
   border: 1px solid lightgrey;
+  overflow-y: hidden;
+  line-height: 1.5;
 }
 
 .save-button {
@@ -181,10 +185,12 @@ div {
   textarea {
     resize: none;
     width: 90%;
-    height: 30px;
+    min-height: 30px;
+    max-height: 300px;
     margin: 15px 0px;
-    padding: 5px 5px 5px 5px;
+    padding: 5px;
     border: 1px solid lightgrey;
+    overflow-y: hidden;
   }
 
 }
